@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>费电大学 - 登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DEF', 
+                        secondary: '#E5E5E5',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .input-focus {
+                @apply focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300;
+            }
+            .btn-hover {
+                @apply hover:opacity-90 transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <div class="flex-1 flex flex-col items-center justify-center px-4 py-8">
+        <div class="mb-12 text-center">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
+                费电大学
+            </div>
+            <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800"></h1>
+            <p class="text-gray-500 mt-1">Chongqing College of Electricity Consumption</p>
+        </div>
+ 
+        <div class="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
+            <form id="loginForm" class="p-6">
+                <div class="mb-4">
+                    <div class="relative border-b border-gray-200">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+                        <input type="text" id="username" name="username" class="w-full pl-10 pr-4 py-4 border-none focus:outline-none input-focus" placeholder="学号/教职工号/手机号" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="relative border-b border-gray-200">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                        </span>
+                        <input type="password" id="password" name="password" class="w-full pl-10 pr-4 py-4 border-none focus:outline-none input-focus" placeholder="密码" required>
+                        <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700 transition-colors duration-300" id="togglePassword">
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full bg-primary text-white font-medium py-3 rounded-lg btn-hover shadow-md">
+                    登录
+                </button>
+        </div>
+     
+        <div class="mt-12 text-center text-gray-500 text-sm">
+            <p>© 2025 费电大学. 保留所有权利.</p>
+            <p class="mt-1">技术支持: 费电大学信息技术中心</p>
+        </div>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        
+            togglePassword.innerHTML = type === 'password' ? 
+                '<i class="fa-regular fa-eye-slash"></i>' : 
+                '<i class="fa-regular fa-eye"></i>';
+        });
+
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            window.location.href = '新建文本文档.html'; 
+        });
+    </script>
+</body>
+</html>
+    
